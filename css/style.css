@@ -1,0 +1,179 @@
+/* ============================================
+   Dheny Puji Laksono - Portfolio Styles
+   Clean, Modern, Professional Data Scientist Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+:root {
+    --primary: #0F172A;
+    --accent: #22D3EE;
+}
+
+body {
+    font-family: 'Inter', system_ui, sans-serif;
+}
+
+.font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.section-header {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #22D3EE;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+    width: 100%;
+}
+
+.glass {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.skill-progress {
+    transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-card,
+.cert-card,
+.dash-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+                border-color 0.2s ease;
+}
+
+.project-card:hover,
+.cert-card:hover,
+.dash-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.modern-card {
+    background: #0F172A;
+    border: 1px solid #334155;
+}
+
+.data-viz-bg {
+    background: 
+        radial-gradient(circle at 25% 30%, rgba(103, 232, 249, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(103, 232, 249, 0.06) 0%, transparent 50%);
+}
+
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+.timeline-dot {
+    box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 0 7px rgba(103, 232, 249, 0.3);
+}
+
+.modal {
+    animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.portfolio-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-active {
+    color: #22D3EE;
+    font-weight: 600;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    background-color: #1E2937;
+    color: #94A3B8;
+    border: 1px solid #334155;
+}
+
+.data-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #67E8F9;
+    box-shadow: 0 0 8px #67E8F9;
+    pointer-events: none;
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #334155, transparent);
+}
+
+.metric-value {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Light mode adjustments (when .dark is removed) */
+html:not(.dark) .modern-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #1e2937;
+}
+
+html:not(.dark) .glass {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #e2e8f0;
+}
+
+html:not(.dark) .nav-link {
+    color: #475569;
+}
+
+html:not(.dark) .nav-link:hover {
+    color: #0f172a;
+}
+
+html:not(.dark) .section-header {
+    color: #0f172a;
+}
+
+html:not(.dark) .text-slate-300 {
+    color: #475569;
+}
+
+html:not(.dark) .text-slate-400 {
+    color: #64748b;
+}
