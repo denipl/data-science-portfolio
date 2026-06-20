@@ -593,7 +593,7 @@ function downloadCV() {
   // Exp 1
   doc.setFontSize(10);
   doc.setFont("helvetica", "bold");
-  doc.text("Alliance & Partnership Intern", margin, y);
+  doc.text("Interline & Strategic Support", margin, y);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.text(
