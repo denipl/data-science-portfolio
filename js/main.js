@@ -290,99 +290,6 @@ function initHeroCanvas() {
 // Project Demo Data & Functions
 const projectData = [
   {
-    title: "Indonesian SMS Spam & Fraud Detection",
-    content: `
-            <div class="space-y-5 text-sm">
-                <p class="text-slate-300">This interactive demo showcases a simplified version of the SMS classification model. Enter an Indonesian SMS text below to see how the model would classify it.</p>
-                
-                <div>
-                    <label class="block text-xs tracking-wider text-slate-400 mb-1.5">INPUT SMS TEXT</label>
-                    <textarea id="sms-input" rows="3" class="w-full bg-slate-950 border border-slate-700 focus:border-cyan-600 rounded-2xl p-4 text-sm resize-y" placeholder="Contoh: Selamat anda memenangkan hadiah 100 juta rupiah. Hubungi nomor ini segera!"></textarea>
-                </div>
-                
-                <button onclick="classifySMS()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-sm font-semibold text-slate-950 flex items-center justify-center gap-x-2 active:scale-[0.985] transition">
-                    <i class="fa-solid fa-magic"></i> 
-                    <span>CLASSIFY WITH ML MODEL</span>
-                </button>
-                
-                <div id="sms-result" class="hidden mt-4 p-5 rounded-2xl border border-slate-700 bg-slate-950">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-xs text-slate-400">PREDICTED CLASS</div>
-                            <div id="sms-class" class="font-semibold text-2xl mt-0.5"></div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xs text-slate-400">CONFIDENCE</div>
-                            <div id="sms-conf" class="font-mono text-3xl font-semibold text-emerald-400"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pt-3 text-[10px] text-center text-slate-500">Model: SVM + TF-IDF • Trained on 6,120 labeled Indonesian SMS records • Macro F1: 0.91</div>
-            </div>
-        `,
-  },
-  {
-    title: "Customer Segmentation Dashboard",
-    content: `
-            <div>
-                <p class="text-sm text-slate-300 mb-5">This project segments customers into 4 clusters using RFM (Recency, Frequency, Monetary) analysis + K-Means. Below is a simplified interactive segment explorer.</p>
-                
-                <div class="grid grid-cols-2 gap-3">
-                    <div onclick="selectSegment(0)" class="cursor-pointer p-4 rounded-2xl border border-slate-700 hover:border-emerald-500 bg-slate-950">
-                        <div class="font-semibold">Champions</div>
-                        <div class="text-xs text-emerald-400">High value • Loyal</div>
-                        <div class="text-[10px] mt-3 text-slate-400">32% of customers • 58% revenue</div>
-                    </div>
-                    <div onclick="selectSegment(1)" class="cursor-pointer p-4 rounded-2xl border border-slate-700 hover:border-amber-500 bg-slate-950">
-                        <div class="font-semibold">Loyal Customers</div>
-                        <div class="text-xs text-amber-400">Frequent buyers</div>
-                        <div class="text-[10px] mt-3 text-slate-400">27% of customers • 24% revenue</div>
-                    </div>
-                    <div onclick="selectSegment(2)" class="cursor-pointer p-4 rounded-2xl border border-slate-700 hover:border-orange-500 bg-slate-950">
-                        <div class="font-semibold">At Risk</div>
-                        <div class="text-xs text-orange-400">Declining engagement</div>
-                        <div class="text-[10px] mt-3 text-slate-400">23% of customers • 12% revenue</div>
-                    </div>
-                    <div onclick="selectSegment(3)" class="cursor-pointer p-4 rounded-2xl border border-slate-700 hover:border-red-500 bg-slate-950">
-                        <div class="font-semibold">New / Low Value</div>
-                        <div class="text-xs text-red-400">One-time purchasers</div>
-                        <div class="text-[10px] mt-3 text-slate-400">18% of customers • 6% revenue</div>
-                    </div>
-                </div>
-                
-                <div id="segment-detail" class="hidden mt-5 p-4 rounded-2xl bg-slate-950 border border-slate-700 text-xs"></div>
-            </div>
-        `,
-  },
-  {
-    title: "Product Review Sentiment Analysis",
-    content: `
-            <div class="space-y-4">
-                <p class="text-sm">Test the sentiment classifier trained on Indonesian product reviews. The model uses TF-IDF + SVM and achieves 87.3% F1-score.</p>
-                
-                <div>
-                    <label class="text-xs text-slate-400">REVIEW TEXT (Bahasa Indonesia)</label>
-                    <textarea id="review-input" rows="3" class="mt-1.5 w-full bg-slate-950 border border-slate-700 rounded-2xl p-4 text-sm" placeholder="Produknya bagus banget, pengiriman cepat dan kualitas sesuai harapan!"></textarea>
-                </div>
-                
-                <button onclick="analyzeSentiment()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-sm font-semibold text-slate-950 flex items-center justify-center gap-x-2">
-                    ANALYZE SENTIMENT
-                </button>
-                
-                <div id="sentiment-result" class="hidden p-5 rounded-2xl border border-slate-700">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div id="sentiment-label" class="font-bold text-3xl"></div>
-                            <div id="sentiment-score" class="font-mono text-sm"></div>
-                        </div>
-                        <i id="sentiment-icon" class="text-5xl"></i>
-                    </div>
-                </div>
-            </div>
-        `,
-  },
-  {
     title: "SQL Data Analysis Queries",
     content: `
             <div>
@@ -390,12 +297,17 @@ const projectData = [
                 
                 <div class="space-y-4 text-xs font-mono">
                     <div class="p-4 bg-black/60 rounded-2xl border border-slate-700">
-                        <div class="text-emerald-400 mb-1">-- Customer Lifetime Value (Cohort)</div>
-                        <div class="text-slate-300">WITH customer_cohorts AS (...)</div>
-                    </div>
-                    <div class="p-4 bg-black/60 rounded-2xl border border-slate-700">
-                        <div class="text-emerald-400 mb-1">-- Retention Rate by Month</div>
-                        <div class="text-slate-300">SELECT DATE_TRUNC('month', first_purchase) ...</div>
+                        <div class="text-emerald-400 mb-1">-- Total Orders by Store</div>
+                        <div class="text-slate-300">SELECTs.store_name,s.city,
+                                                            o.order_date,
+                                                            SUM(s.store_id) AS total_order
+                                                        FROM stores s
+                                                        JOIN orders o
+                                                            ON s.store_id = o.store_id
+                                                        GROUP BY 
+                                                            s.store_name,
+                                                            s.city,
+                                                            o.order_date;</div>
                     </div>
                 </div>
                 
@@ -427,172 +339,28 @@ function hideProjectModal() {
   if (modal) modal.style.display = "none";
 }
 
-// Fake SMS Classifier (demo)
-function classifySMS() {
-  const input = document.getElementById("sms-input")?.value.trim();
-  const resultBox = document.getElementById("sms-result");
-  const classEl = document.getElementById("sms-class");
-  const confEl = document.getElementById("sms-conf");
-
-  if (!input || !resultBox || !classEl || !confEl) return;
-
-  resultBox.classList.remove("hidden");
-
-  const lower = input.toLowerCase();
-  let predictedClass = "Normal";
-  let confidence = (Math.random() * 12 + 82).toFixed(1);
-  let color = "emerald";
-
-  if (
-    lower.includes("hadiah") ||
-    lower.includes("menang") ||
-    lower.includes("100 juta") ||
-    lower.includes("klik link")
-  ) {
-    predictedClass = "Fraud / Penipuan";
-    confidence = (Math.random() * 9 + 89).toFixed(1);
-    color = "rose";
-  } else if (
-    lower.includes("promo") ||
-    lower.includes("diskon") ||
-    lower.includes("spesial") ||
-    lower.includes("segera")
-  ) {
-    predictedClass = "Spam";
-    confidence = (Math.random() * 11 + 84).toFixed(1);
-    color = "amber";
-  }
-
-  classEl.innerHTML = predictedClass;
-  classEl.style.color =
-    color === "emerald" ? "#10b981" : color === "amber" ? "#f59e0b" : "#f43f5e";
-  confEl.innerHTML = confidence + "%";
-  confEl.style.color =
-    color === "emerald" ? "#10b981" : color === "amber" ? "#f59e0b" : "#f43f5e";
-}
-
-function selectSegment(segment) {
-  const detail = document.getElementById("segment-detail");
-  if (!detail) return;
-
-  detail.classList.remove("hidden");
-
-  const segments = [
-    {
-      name: "Champions",
-      desc: "Most valuable segment. High recency, frequency and monetary value. Strategy: VIP loyalty program, early access to new products, personalized offers.",
-    },
-    {
-      name: "Loyal Customers",
-      desc: "Consistent buyers. Good frequency but slightly lower monetary. Strategy: Cross-sell & upsell campaigns, subscription offers.",
-    },
-    {
-      name: "At Risk",
-      desc: "Previously active but showing declining engagement. High churn risk. Strategy: Win-back campaigns, special reactivation discounts.",
-    },
-    {
-      name: "New / Low Value",
-      desc: "Recent or one-time buyers. Low engagement. Strategy: Onboarding sequences, educational content, entry-level product recommendations.",
-    },
-  ];
-
-  detail.innerHTML = `
-        <div class="font-semibold text-lg mb-1">${segments[segment].name}</div>
-        <div class="text-xs leading-relaxed text-slate-300">${segments[segment].desc}</div>
-    `;
-}
-
-function analyzeSentiment() {
-  const input = document.getElementById("review-input")?.value.trim();
-  const resultBox = document.getElementById("sentiment-result");
-
-  if (!input || !resultBox) return;
-
-  resultBox.classList.remove("hidden");
-
-  const lower = input.toLowerCase();
-  let label = "Positive";
-  let score = (Math.random() * 14 + 83).toFixed(1);
-  let icon = "fa-smile";
-  let color = "#10b981";
-
-  if (
-    lower.includes("buruk") ||
-    lower.includes("jelek") ||
-    lower.includes("kecewa") ||
-    lower.includes("rusak") ||
-    lower.includes("lambat")
-  ) {
-    label = "Negative";
-    score = (Math.random() * 18 + 78).toFixed(1);
-    icon = "fa-frown";
-    color = "#f43f5e";
-  } else if (
-    lower.includes("biasa") ||
-    lower.includes("cukup") ||
-    lower.includes("standar")
-  ) {
-    label = "Neutral";
-    score = (Math.random() * 15 + 72).toFixed(1);
-    icon = "fa-meh";
-    color = "#f59e0b";
-  }
-
-  const labelEl = document.getElementById("sentiment-label");
-  const scoreEl = document.getElementById("sentiment-score");
-  const iconEl = document.getElementById("sentiment-icon");
-
-  if (labelEl) {
-    labelEl.innerHTML = label;
-    labelEl.style.color = color;
-  }
-  if (scoreEl) scoreEl.innerHTML = `Confidence: ${score}%`;
-  if (iconEl) {
-    iconEl.className = `fa-regular ${icon}`;
-    iconEl.style.color = color;
-  }
-}
-
 // Dashboard Gallery Data & Modals
 const dashboardData = [
   {
-    title: "Sales Performance Dashboard",
-    subtitle: "Power BI • Enterprise Sales Analytics",
-    image: "https://picsum.photos/id/201/1200/630",
-    desc: "Comprehensive sales performance tracking including YTD revenue, regional breakdown, top products, sales rep leaderboards, and 12-month forecasting using DAX time intelligence functions. Features row-level security and executive drill-through pages.",
-    tech: ["Power BI", "DAX", "Power Query", "Azure SQL", "Row-Level Security"],
+    title: "Real Estate Market Performance: Executive Summary (2006–2010)",
+    subtitle: "Power BI",
+    image: "image/ds1.png",
+    desc: "Developed an executive-level Power BI dashboard to analyze real estate market performance using 1,460 property transactions. The dashboard provides insights into total sales value, average property prices, transaction volumes, geographical distribution, and yearly market trends, enabling stakeholders to monitor market performance and identify emerging opportunities through interactive visual analytics.",
+    tech: ["Power BI", "Python"],
   },
   {
-    title: "Customer 360 Analytics",
-    subtitle: "Power BI • Customer Intelligence",
-    image: "https://picsum.photos/id/160/1200/630",
-    desc: "360-degree customer view combining transaction history, support tickets, website engagement, and demographic data. Includes cohort analysis, churn prediction scores, and customer lifetime value heatmaps.",
-    tech: [
-      "Power BI",
-      "Python (for prep)",
-      "Azure Synapse",
-      "Customer Data Platform",
-    ],
+    title: "Property Characteristics & Price Drivers Analysis",
+    subtitle: "Power BI",
+    image: "image/ds2.png",
+    desc: "Designed an analytical dashboard to examine the relationship between property characteristics and market value. The analysis explores how factors such as living area, building type, house style, garage capacity, fireplaces, and overall quality influence residential property prices, helping uncover the key drivers behind property valuation.",
+    tech: ["Power BI", "Python"],
   },
   {
-    title: "Financial KPI & Forecasting",
-    subtitle: "Power BI • Finance & Planning",
-    image: "https://picsum.photos/id/251/1200/630",
-    desc: "Finance team dashboard showing P&L trends, cash flow forecasting, budget vs actual variance analysis, and scenario modeling. Built with advanced DAX and connected to SAP and Excel data sources.",
-    tech: ["Power BI", "DAX", "SAP BW", "Excel", "What-if Parameters"],
-  },
-  {
-    title: "Supply Chain & Inventory",
-    subtitle: "Tableau • Operations",
-    image: "https://picsum.photos/id/180/1200/630",
-    desc: "End-to-end supply chain visibility: inventory levels by warehouse, supplier performance scorecards, lead time analysis, and demand forecasting. Includes alerts for stockouts and overstock situations.",
-    tech: [
-      "Tableau",
-      "Tableau Prep",
-      "PostgreSQL",
-      "SAP",
-      "Python forecasting",
-    ],
+    title: "Quarterly Order Trends Analysis by Store Location (2016–2018)",
+    subtitle: "Tableau",
+    image: "image/tabeleu.png",
+    desc: "Developed an interactive Tableau dashboard to analyze quarterly order trends across multiple retail store locations from 2016 to 2018. The analysis highlights sales performance differences, seasonal demand fluctuations, and ordering patterns, enabling stakeholders to evaluate store performance and support data-driven inventory and sales planning.",
+    tech: ["Tableau", "Mysql"],
   },
 ];
 
@@ -722,7 +490,7 @@ function hideCertModal() {
   const modal = document.getElementById("cert-modal");
   if (modal) modal.style.display = "none";
 }
-
+// CV--------------------------------------------------
 // Generate Professional PDF Resume using jsPDF
 function downloadCV() {
   const { jsPDF } = window.jspdf;
@@ -751,7 +519,7 @@ function downloadCV() {
 
   doc.setFontSize(11);
   doc.setFont("helvetica", "normal");
-  doc.text("Data Analyst  |  Aspiring Data Scientist", margin, 22);
+  doc.text("Data Analyst | Business Intelligence | Data Science", margin, 22);
 
   // Contact line
   doc.setFontSize(9);
@@ -779,7 +547,7 @@ function downloadCV() {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(60, 60, 60);
   const summary =
-    "Results-driven Information Technology student (GPA 3.67/4.00) with strong foundations in software engineering transitioning into data analytics and machine learning. Experienced in building end-to-end data pipelines, developing predictive models, and creating impactful business intelligence dashboards. Passionate about transforming raw data into actionable insights that drive strategic decisions. Seeking Data Scientist or ML Engineer internship opportunities in 2026.";
+    "Final-year Information Technology student with hands-on experience in data analysis, business intelligence, dashboard development, and machine learning. Skilled in transforming complex datasets into actionable insights using SQL, Python, Excel, Power BI, and Tableau. Experienced in data validation, trend analysis, reporting, and predictive analytics through professional internships and real-world projects. Passionate about supporting data-driven decision-making and delivering measurable business value through analytics.";
 
   const splitSummary = doc.splitTextToSize(summary, pageWidth - margin * 2);
   doc.text(splitSummary, margin, y);
@@ -799,11 +567,11 @@ function downloadCV() {
   doc.setTextColor(60, 60, 60);
 
   const skills = [
-    "Programming: Python (92%), SQL (88%), JavaScript (75%)",
-    "Data Analysis: Pandas, NumPy, Excel (Advanced), Statistical Analysis",
-    "Machine Learning: Scikit-learn, SVM, Naive Bayes, KNN, Feature Engineering, Model Evaluation",
-    "Visualization & BI: Power BI (Advanced DAX), Tableau, Matplotlib, Seaborn, Plotly",
-    "Databases & Tools: MySQL, Git, Docker, Jupyter, VS Code, Vertex AI, FastAPI (basic)",
+    "Data Analytics: Data Cleaning, Data Validation, Exploratory Data Analysis (EDA), Trend Analysis, Statistical Analysis",
+    "Business Intelligence: Dashboard Development, KPI Monitoring, Data Visualization, Business Reporting, Data Storytelling",
+    "Programming & Databases: Python, SQL, MySQL, JavaScript",
+    "Data Science: Machine Learning, Predictive Analytics, NLP, Feature Engineering, Model Evaluation",
+    "Tools & Technologies: Excel, Power BI, Tableau, Streamlit, Pandas, NumPy, Scikit-Learn, Plotly, Google Cloud",
   ];
 
   skills.forEach((skill) => {
@@ -838,10 +606,10 @@ function downloadCV() {
   doc.setFontSize(8.8);
   doc.setTextColor(80, 80, 80);
   const exp1 = [
-    "• Conducted data validation and cleansing on large partnership agreement datasets",
-    "• Performed fare analysis and competitive benchmarking across multiple airline partners",
-    "• Built automated Excel reporting templates that reduced manual reporting effort by ~40%",
-    "• Prepared executive-level analysis and presentations for partnership strategy meetings",
+    "• Collected, validated, and analyzed airline fare and partnership datasets to ensure reporting accuracy and data consistency",
+    "• Conducted pricing trend analysis and benchmarking across domestic and international airline partners",
+    "• Developed structured reports and analytical outputs using advanced Excel functions to support business decision-making",
+    "• Collaborated with cross-functional teams to identify data discrepancies and improve operational reporting processes",
   ];
   exp1.forEach((line) => {
     doc.text(line, margin + 2, y);
@@ -867,10 +635,10 @@ function downloadCV() {
   doc.setFontSize(8.8);
   doc.setTextColor(80, 80, 80);
   const exp2 = [
-    "• Developed and evaluated machine learning and deep learning models using Vertex AI",
-    "• Implemented generative AI prototypes and advanced prompt engineering workflows",
-    "• Built complete ML pipelines including preprocessing, training, validation, and deployment",
-    "• Collaborated with cross-functional teams to productionize AI solutions for internal use",
+    "• Developed machine learning and data analytics solutions using Python and Google Cloud technologies",
+    "• Applied data preprocessing, feature engineering, and model evaluation techniques to solve business problems",
+    "• Built AI and Generative AI prototypes using Vertex AI and cloud-based machine learning services",
+    "• Collaborated in project-based learning environments to deliver data-driven solutions and analytical insights",
   ];
   exp2.forEach((line) => {
     doc.text(line, margin + 2, y);
@@ -879,61 +647,84 @@ function downloadCV() {
 
   y += 6;
 
-  // Projects
+  // ========================================
+  // KEY PROJECTS
+  // ========================================
+
+  if (y > 220) {
+    doc.addPage();
+    y = 20;
+  }
+
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
   doc.text("KEY PROJECTS", margin, y);
+
   y += 5.5;
+
+  doc.setDrawColor(103, 232, 249);
   doc.line(margin, y, margin + 30, y);
-  y += 6;
 
-  doc.setFontSize(9);
-  doc.setFont("helvetica", "bold");
-  doc.text(
-    "• Indonesian SMS Spam & Fraud Detection (SVM • 94.2% accuracy)",
-    margin,
-    y,
-  );
-  y += 4.8;
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8.5);
-  doc.setTextColor(80, 80, 80);
-  doc.text(
-    "   Compared Naive Bayes, SVM, and KNN for multi-class Indonesian SMS classification using TF-IDF + SMOTE.",
-    margin,
-    y,
-  );
-  y += 5.5;
+  y += 8;
 
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(15, 23, 42);
-  doc.text("• Customer Segmentation using RFM + K-Means Clustering", margin, y);
-  y += 4.8;
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8.5);
-  doc.setTextColor(80, 80, 80);
-  doc.text(
-    "   Identified 4 actionable customer personas with silhouette score of 0.72 for targeted marketing strategies.",
-    margin,
-    y,
-  );
-  y += 5.5;
+  // ========================================
+  // PROJECT FUNCTION
+  // ========================================
 
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(15, 23, 42);
-  doc.text("• Enterprise Sales Performance Dashboard (Power BI)", margin, y);
-  y += 4.8;
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8.5);
-  doc.setTextColor(80, 80, 80);
-  doc.text(
-    "   Built interactive dashboards with DAX forecasting, regional analysis, and role-based access control.",
-    margin,
-    y,
+  function addProject(title, description) {
+    // Auto new page
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
+
+    // Title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    doc.setTextColor(15, 23, 42);
+
+    doc.text(`• ${title}`, margin, y);
+
+    y += 5;
+
+    // Description
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8.5);
+    doc.setTextColor(80, 80, 80);
+
+    const descLines = doc.splitTextToSize(description, 165);
+
+    doc.text(descLines, margin + 4, y);
+
+    y += descLines.length * 4 + 5;
+  }
+
+  // ========================================
+  // PROJECTS
+  // ========================================
+
+  addProject(
+    "House Price Prediction & Analytics Dashboard",
+    "Built an end-to-end analytics solution combining machine learning and Power BI dashboards to analyze housing market trends, identify key property price drivers, and generate data-driven insights for real estate decision-making.",
   );
+
+  addProject(
+    "HR Analytics & Prediction Dashboard",
+    "Developed an interactive HR Analytics Dashboard to monitor workforce KPIs, employee demographics, and attrition trends. Leveraged data visualization and automated reporting techniques to generate actionable insights that support employee retention and human resource decision-making.",
+  );
+
+  addProject(
+    "Bike Store Sales & Order Trend Analysis",
+    "Analyzed multi-store sales performance using SQL and Tableau to identify quarterly order trends, seasonal demand patterns, and store-level performance differences. Delivered actionable business insights to support inventory planning and operational decision-making.",
+  );
+
+  addProject(
+    "Indonesian SMS Spam & Fraud Detection",
+    "Developed a machine learning-based text classification solution to identify spam, fraudulent, and legitimate SMS messages in Bahasa Indonesia. Applied NLP techniques, feature engineering, and predictive analytics to support automated message filtering and fraud detection.",
+  );
+
+  y += 5;
 
   // Footer
   doc.setDrawColor(200, 200, 200);
@@ -951,7 +742,7 @@ function downloadCV() {
   // Save
   doc.save("Dheny_Puji_Laksono_Data_Analyst_CV_2026.pdf");
 }
-
+// END CV --------------------------------------------------------------
 // Initialize AOS (Animate On Scroll)
 function initAOS() {
   if (typeof AOS !== "undefined") {
