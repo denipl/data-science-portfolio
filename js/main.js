@@ -297,17 +297,15 @@ const projectData = [
                 
                 <div class="space-y-4 text-xs font-mono">
                     <div class="p-4 bg-black/60 rounded-2xl border border-slate-700">
-                        <div class="text-emerald-400 mb-1">-- Total Orders by Store</div>
-                        <div class="text-slate-300">SELECTs.store_name,s.city,
-                                                            o.order_date,
-                                                            SUM(s.store_id) AS total_order
-                                                        FROM stores s
-                                                        JOIN orders o
-                                                            ON s.store_id = o.store_id
-                                                        GROUP BY 
-                                                            s.store_name,
-                                                            s.city,
-                                                            o.order_date;</div>
+                        <div class="text-emerald-400 mb-1">-- Sales insight</div>
+                        <div class="text-slate-300">
+                        select s.store_name,p.product_name,o.order_date,sum(i.quantity) as total_quantity,sum(i.quantity * i.list_price) as total_price
+                        from stores s
+                        join orders o on s.store_id = o.store_id
+                        join order_items i  on i.order_id = o.order_id
+                        join products p on p.product_id = i.product_id
+                        group by s.store_name,p.product_name,o.order_date
+
                     </div>
                 </div>
                 
@@ -356,10 +354,10 @@ const dashboardData = [
     tech: ["Power BI", "Python"],
   },
   {
-    title: "Quarterly Order Trends Analysis by Store Location (2016–2018)",
+    title: "Bike Store Sales Dashboard ",
     subtitle: "Tableau",
-    image: "image/tabeleu.png",
-    desc: "Developed an interactive Tableau dashboard to analyze quarterly order trends across multiple retail store locations from 2016 to 2018. The analysis highlights sales performance differences, seasonal demand fluctuations, and ordering patterns, enabling stakeholders to evaluate store performance and support data-driven inventory and sales planning.",
+    image: "image/dashboard.png",
+    desc: "Data analysis and visualization project focused on bicycle store sales performance. The project features an interactive dashboard designed to track key sales metrics, identify top-performing stores and products, and analyze revenue trends over a specific time period.",
     tech: ["Tableau", "Mysql"],
   },
 ];
@@ -716,7 +714,7 @@ function downloadCV() {
 
   addProject(
     "Bike Store Sales & Order Trend Analysis",
-    "Analyzed multi-store sales performance using SQL and Tableau to identify quarterly order trends, seasonal demand patterns, and store-level performance differences. Delivered actionable business insights to support inventory planning and operational decision-making.",
+    "Data analysis and visualization project focused on bicycle store sales performance. The project features an interactive dashboard designed to track key sales metrics, identify top-performing stores and products, and analyze revenue trends over a specific time period.",
   );
 
   addProject(
