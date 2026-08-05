@@ -150,8 +150,8 @@ function initActiveNav() {
 // Animated Counters for Stats
 function animateCounters() {
   const counters = [
-    { id: "stat-projects", target: 4, suffix: "" },
-    { id: "stat-certs", target: 8, suffix: "" },
+    { id: "stat-projects", target: 5, suffix: "" },
+    { id: "stat-certs", target: 9, suffix: "" },
     { id: "stat-exp", target: 1, suffix: "" },
     { id: "stat-models", target: 5, suffix: "" },
   ];
@@ -460,6 +460,13 @@ const certData = [
     issuer: "Competence • BNSP • 2025",
     desc: "Competence certificate for Software Engineer.",
     link: "https://drive.google.com/file/d/1vVz6U4OuyHwtrFxWCZicoWnd7Dhf2WZG/view?usp=sharing",
+  },
+  {
+    icon: '<i class="fa-solid fa-award text-amber-400"></i>',
+    title: "Data Science & Analytics Bootcamp",
+    issuer: "Bootcamp • Dsarea • 2026",
+    desc: "This one-month program comprehensively honed my data analysis skills using Python, SQL (BigQuery), R, SPSS, and Advanced Excel. Equipped with an understanding of statistical modeling, data visualization, and fundamental machine learning algorithms, I am prepared to design data-driven analytical solutions.",
+    link: "https://drive.google.com/file/d/13R5Zt4xfLYxEvWP4mHE3YYSLVYYbxxxS/view?usp=sharing",
   },
 ];
 
