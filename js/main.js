@@ -152,7 +152,7 @@ function animateCounters() {
   const counters = [
     { id: "stat-projects", target: 5, suffix: "" },
     { id: "stat-certs", target: 9, suffix: "" },
-    { id: "stat-exp", target: 1, suffix: "" },
+    { id: "stat-exp", target: 2, suffix: "" },
     { id: "stat-models", target: 5, suffix: "" },
   ];
 
